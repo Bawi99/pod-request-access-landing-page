@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pod request access landing page</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;800&family=Chivo:wght@100;300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="pod-logo"><img src="assets/desktop/logo.svg" alt="pod logo"></div>
+    <article class="herald">
+      <h1>Publish your podcasts <br><span>everywhere.</span></h1>
+      <p>Upload your audio to Pod with a single click. We'll then distribute your podcast to Spotify, Apple Podcasts, Google Podcasts, Pocket Casts and more!</p>
+      <form action="index.html" method="POST" id="login">
+        <div class="form-content">
+          <input type="text" name="email" id="email" placeholder="Email address">
+          <div class="error"></div>
+          <input type="submit" value="Request access" id="submit">
+        </div>
+      </form>
+      <ul class="sns">
+        <li class="sns-item"><a href="#" class="sns-link"><img src="assets/desktop/spotify.svg" class="sns-img" alt="spotify"></a></li>
+        <li class="sns-item"><a href="#" class="sns-link"><img src="assets/desktop/apple-podcast.svg" class="sns-img" alt="apple-podcast"></a></li>
+        <li class="sns-item"><a href="#" class="sns-link"><img src="assets/desktop/google-podcasts.svg" class="sns-img" alt="google-podcasts"></a></li>
+        <li class="sns-item"><a href="#" class="sns-link"><img src="assets/desktop/pocket-casts.svg" class="sns-img" alt="pocket-casts"></a></li>
+      </ul>
+    </article>
+    <div class="hero">
+      <picture>
+        <source media="(min-width: 910px)" srcset="assets/desktop/image-host.jpg">
+        <source media="(min-width: 530px)" srcset="assets/tablet/image-host.jpg">
+        <img src="assets/mobile/image-host.jpg" alt="an artist singing in studio">
+      </picture>
+    </div>
+  </main>
+  <div class="deco"><img src="assets/desktop/bg-pattern-dots.svg" alt=""></div>
+
+  <script src="javascript/script.js"></script>
+</body>
+</html>

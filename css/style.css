@@ -1,0 +1,362 @@
+:root {
+  --clr-accent-100: hsla(157, 74%, 62%, 1);
+  --clr-accent-200: hsla(225, 26%, 23%, 1);
+  --clr-neutral-000: hsla(0, 0%, 100%, 1);
+  --clr-neutral-200: hsla(225, 40%, 83%, 1);
+  --clr-neutral-500: hsla(225, 21%, 45%, 1);
+  --clr-neutral-900: hsla(224, 35%, 11%, 1);
+
+  --ff-sans: "Chivo", sans-serif;
+
+  --fw-100: 100;
+  --fw-200: 200;
+  --fw-800: 800;
+
+  --fz-900: 1.625rem;
+  --fz-700: 0.875rem;
+  --fz-500: 0.875rem;
+  --fz-200: 0.75rem;
+
+  /* --spacer: 1rem; */
+}
+
+/* ********************************************************* */
+/* GENERAL SETTINGS */
+/* ********************************************************* */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ff-sans);
+  font-size: var(--fz-700);
+  font-weight: var(--fw-200);
+  line-height: 1.4;
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-neutral-900);
+  /* Presentation */
+  height: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto minmax(auto, 1500px) auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ********************************************************* */
+/* ***********       main.container      ******************* */
+/* ********************************************************* */
+
+main.container {
+  /* border: solid 2px greenyellow; */
+  /* max-width: 1500px; */
+  grid-area: 1/1/2/-1;
+  /* place-self: stretch; */
+  display: grid;
+  grid-template-columns: auto;
+}
+/* ***********      .pod-logo       ******************* */
+.pod-logo {
+  /* outline: solid 2px magenta; */
+  margin-bottom: 1em;
+  grid-area: 1/1/2/-1;
+  align-self: end;
+  justify-self: center;
+  /* place-self: center; */
+}
+/* ***********      .herald      ******************* */
+.herald {
+  /* outline: solid 2px red; */
+  text-align: center;
+  display: grid;
+  row-gap: 2rem;
+  grid-area: 2/1/3/-1;
+  padding: 1.25em;
+  place-self: center;
+}
+
+.herald h1 {
+  color: var(--clr-accent-100);
+  text-transform: uppercase;
+  font-size: var(--fz-900);
+  font-weight: var(--fw-100);
+  line-height: 1.2;
+}
+.herald h1 span {
+  color: var(--clr-neutral-000);
+}
+
+.herald p {
+  max-width: 445px;
+}
+
+form {
+  order: 1;
+}
+
+.form-content {
+  /* outline: solid 2px orange; */
+  position: relative;
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 2rem;
+  /* --form-spacer: 0.875em; */
+  --form-spacer: 1em;
+}
+
+#email {
+  /* outline: solid 2px fuchsia; */
+  border: none;
+  font-size: var(--fz-500);
+  font-family: inherit;
+  letter-spacing: 0.0625em;
+  background-color: var(--clr-accent-200);
+  color: var(--clr-neutral-000);
+  padding: calc(var(--form-spacer) * 0.875) calc(var(--form-spacer) * 2);
+  border-radius: 3em;
+  min-width: 0;
+}
+#email::placeholder {
+  font-size: var(--fz-500);
+  font-weight: var(--fw-800);
+  text-align: center;
+}
+#email:focus {
+  background-color: var(--clr-neutral-900);
+}
+
+.error {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 4em;
+  display: block;
+  font-size: var(--fz-200);
+  font-weight: var(--fw-800);
+  letter-spacing: 1px;
+  color: red;
+}
+.popUp {
+  animation: popUp 700ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes popUp {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#submit {
+  /* outline: solid 2px fuchsia; */
+  border: none;
+  font-family: inherit;
+  font-size: var(--fz-500);
+  font-weight: var(--fw-800);
+  letter-spacing: 0.0625em;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  background-color: var(--clr-accent-100);
+  color: var(--clr-neutral-900);
+  padding: calc(var(--form-spacer) * 0.875) calc(var(--form-spacer) * 2);
+  border-radius: 3em;
+  cursor: pointer;
+}
+#submit:focus,
+#submit:hover {
+  background-color: hsla(157, 100%, 85%, 1);
+}
+
+ul.sns {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul.sns li {
+  line-height: 0;
+}
+ul.sns li:not(:first-child) {
+  margin-left: 1.5em;
+}
+ul.sns .sns-link {
+  display: inline-block;
+}
+/* ***********      .hero       ******************* */
+.hero {
+  /* border: solid 2px darkorange; */
+  grid-area: 1/1/3/-1;
+  order: -1;
+  place-self: stretch;
+  /* For pseudo element veil */
+  position: relative;
+  z-index: -1;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(224, 35%, 11%, 0.8);
+}
+.hero img {
+  height: 100%;
+  float: right;
+}
+
+/* ********************************************************* */
+/* ****************  .deco            ********************** */
+/* ********************************************************* */
+
+.deco {
+  display: none;
+}
+
+/* ********************************************************* */
+/* MEDIA QUERIES */
+/* ********************************************************* */
+
+@media all and (min-width: 530px) {
+  :root {
+    --fz-900: 3rem;
+    --fz-700: 1.125rem;
+  }
+  body {
+    grid-template-columns: 9% minmax(auto, 1500px) auto;
+  }
+
+  main.container {
+    grid-area: 1/2/2/4;
+    align-self: start;
+    grid-template-columns: auto minmax(50px, auto);
+  }
+  /* ***********      .pod-logo       ******************* */
+  .pod-logo {
+    justify-self: start;
+    align-self: center;
+    grid-area: 1/1/2/2;
+  }
+  /* ***********      .herald      ******************* */
+  .herald {
+    text-align: left;
+    background-color: var(--clr-neutral-900);
+    padding: 2rem 2rem 0 0;
+    place-self: end start;
+    grid-area: 2/1/3/2;
+  }
+
+  form {
+    order: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .form-content {
+    grid-template-columns: auto auto;
+    column-gap: 0.5em;
+    position: relative;
+
+    background-color: var(--clr-accent-200);
+    color: var(--clr-neutral-000);
+    padding: 0.25em;
+    border-radius: 3em;
+    margin-bottom: 2rem;
+  }
+
+  #email {
+    grid-area: 1/1/2/2;
+  }
+  #email::placeholder {
+    text-align: left;
+  }
+  #submit {
+    grid-area: 1/2/2/3;
+  }
+
+  .error {
+    inset: initial;
+    bottom: -2rem;
+    margin-left: 2rem;
+  }
+
+  ul.sns {
+    margin-bottom: 0;
+  }
+  /* ***********      .hero       ******************* */
+  .hero {
+    position: static;
+    z-index: initial;
+    grid-area: 1/1/3/3;
+  }
+  .hero::after {
+    display: none;
+  }
+  .hero img {
+    height: auto;
+  }
+
+  .deco {
+    display: block;
+    grid-area: 2/2/3/4;
+    margin: 1rem 0 3rem 0;
+    align-self: start;
+  }
+}
+
+@media all and (min-width: 910px) {
+  :root {
+    --fz-900: 3.25rem;
+  }
+  body {
+    justify-content: center;
+    align-content: center;
+  }
+  main.container {
+    grid-area: 1/2/2/3;
+    grid-template-columns: auto minmax(400px, auto);
+    margin: 3rem 0;
+  }
+
+  .pod-logo {
+    align-self: start;
+  }
+  .deco {
+    grid-area: 1/2/2/3;
+    margin: 0;
+    margin-bottom: -0.5em;
+    place-self: end;
+  }
+}
+
+@media all and (min-width: 1650px) {
+  body {
+    grid-template-columns: minmax(9%, auto) minmax(auto, 1500px) minmax(9%, auto);
+    justify-content: normal;
+    align-content: center;
+  }
+  main.container {
+    grid-area: 1/2/2/3;
+  }
+  .deco {
+    grid-area: 1/2/2/3;
+  }
+}
