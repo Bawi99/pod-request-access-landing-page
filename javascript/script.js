@@ -15,8 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (!emailRegex.test(emailValue)) {
       errorMsg = 'Oops! Please check your email';
     } else {
+      event.preventDefault();
       isInvalid = false;
       error.textContent = '';
+
+      const answer = document.createElement('h2');
+      answer.innerHTML = 'Your email is valid.<br><span>Thank you for joining us!</span>';
+      answer.classList.add('fadeIn');
+      document.getElementById('login').classList.add('fadeOut');
+      setTimeout(() => {
+      document.getElementById('login').remove();
+      document.querySelector('.form-wrapper').append(answer);
+      }, 500);
+      return;
     }
     email.value = emailValue;
 
